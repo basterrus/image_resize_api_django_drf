@@ -20,6 +20,7 @@ def resize_image(width, height, name):
 
 def download_image(url):
     """Функция загружает изображения на локальный диск при помощи Pillow"""
+
     img = requests.get(url)
     image = Image.open(BytesIO(img.content))
     image.save(f"{path}\\images\\{img.url.split('/')[-1]}")
@@ -33,3 +34,6 @@ def download_image(url):
 
     return name, url, picture, width, height
 
+
+# if __name__ == '__main__':
+#     download_image('https://www.notebookcheck-ru.com/fileadmin/_migrated/pics/eee_2_02.jpg')

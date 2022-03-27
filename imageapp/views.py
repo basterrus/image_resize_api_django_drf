@@ -1,3 +1,4 @@
+from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import mixins, viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -53,3 +54,4 @@ class ImageViewSet(mixins.ListModelMixin,
         new_image.save()  # Сохраняем измененную картинку как новую с указанием id родительской картинки
 
         return Response(data={"width": width, "height": height}, status=status.HTTP_200_OK)
+
