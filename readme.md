@@ -1,9 +1,10 @@
 ## Сервис позволяет загружать изображения по ссылке и сохраняет данные о нем в базу данных  
+___
 
-
-## Входные данные: `url ссылка на изображение `          
-## Выходные данные:
-               `информация вида  {"id": 2, 
+### Входные данные: 
+    `{"url": "https://ichef.bbci.co.uk/news/640/cpsprodpb/14236/production/_104368428_gettyimages-543560762.jpg"}`          
+### Выходные данные:
+               `{"id": 2, 
                "name": "_104368428_gettyimages-543560762.jpg",
                "url": "https://ichef.bbci.co.uk/news/640/cpsprodpb/14236/production/_104368428_gettyimages-543560762.jpg",
                "picture": "http://localhost:8000/m/site_media/_104368428_gettyimages-543560762.jpg",
@@ -11,14 +12,15 @@
                "height": 360,
                "parent_picture": null }`
 ___
-## Запуск проекта:
+### Запуск проекта:
 1. Клонировать репозиторий `https://contest.idacloud.ru/basterrus/drf_upload_image.git`
 2. Перейти в каталог `cd DRF_Upload_image` при необходимости
 3. Создать и активировать виртуальное окружение
 4. Выполнить команду `pip freeze > requirements.txt`
 5. Выполнить команду `python manage.py runserver`
+6. Выполнить запросы к backend при помощи postman или открыть в браузере `http://127.0.0.1:8000/api/images/`
 ___
-## Запросы:
+### Запросы к backend:
 1. `GET` Список всех изображений содержащихся в базе данных по адресу `http://127.0.0.1:8000/api/images/`
 2. `GET` Детальная информация об изображении по адресу `http://127.0.0.1:8000/api/images/<id>/` где id целое число, id изображения в БД
 3. `POST` Изменение разрешения фото `http://127.0.0.1:8000/api/images/<id>/resize/` в теле передаем параметры width и height. 

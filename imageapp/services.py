@@ -22,7 +22,8 @@ def download_image(url):
     """Функция загружает изображения на локальный диск при помощи Pillow"""
 
     img = requests.get(url)
-    image = Image.open(BytesIO(img.content))
+    io_bytes = BytesIO(img.content)
+    image = Image.open(io_bytes, 'r')
     image.save(f"{path}\\images\\{img.url.split('/')[-1]}")
     image = Image.open(BytesIO(img.content))
 
@@ -35,5 +36,6 @@ def download_image(url):
     return name, url, picture, width, height
 
 
-# if __name__ == '__main__':
-#     download_image('https://www.notebookcheck-ru.com/fileadmin/_migrated/pics/eee_2_02.jpg')
+if __name__ == '__main__':
+    download_image('https://www.notebookcheck-ru.com/fileadmin/_migrated/pics/eee_2_02.jpg')
+    resize_image(500, 500, 'pexels-photo-11027273.jpeg')

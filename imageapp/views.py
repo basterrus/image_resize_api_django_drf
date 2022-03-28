@@ -1,4 +1,3 @@
-from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import mixins, viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -17,8 +16,8 @@ class ImageViewSet(mixins.ListModelMixin,
 
     def create(self, request, *args, **kwargs):
         data = request.data
-        name, url, picture, width, height = download_image(
-            data["url"])  # Сохраняем картинку и возвращаем параметры для добавления в БД
+        # Сохраняем картинку и возвращаем параметры для добавления в БД
+        name, url, picture, width, height = download_image(data["url"])
         new_image = ImageModel(name=name,
                                url=url,
                                picture=picture,
@@ -40,10 +39,27 @@ class ImageViewSet(mixins.ListModelMixin,
     def resize(self, request, pk):
         pk = int(pk.split('/')[0])  # Получаем pk
         name = ImageModel.objects.filter(id=pk).first()  # Получаем имя фото по pk
-        width = int(request.data["width"])  # Получаем новый width из запроса пользователя
-        height = int(request.data["height"])  # Получаем новый height из запроса пользователя
+
+        # Получаем новый width из запроса пользователя
+        if request.data["width"] is None:
+            width = int(name.width)
+            print(width)
+            print(type(width))
+        else:
+            width = int(request.data["width"])
+            print('else', width)
+
+        # Получаем новый height из запроса пользователя
+        if request.data["width"] is None:
+            height = int(name.height)
+            print(height)
+            print(type(height))
+        else:
+            height = int(request.data["height"])
+            print('else', height)
+
         resize_path = resize_image(width, height, name)  # Передаем в функцию преобразования
-        new_name = resize_path.split('\\')[-1]  # Возвращаем новый путь для сохранения в БД
+        new_name = resize_path.split('\\')[-1]  # Возвращаем путь новой картинки
 
         new_image = ImageModel(name=new_name,
                                url=None,
