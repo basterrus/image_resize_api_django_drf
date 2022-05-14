@@ -3,15 +3,15 @@
 ___
 
 ### Входные данные: 
-    `{"url": "https://ichef.bbci.co.uk/news/640/cpsprodpb/14236/production/_104368428_gettyimages-543560762.jpg"}`          
+    {"url": "https://ichef.bbci.co.uk/news/640/cpsprodpb/14236/production/_104368428_gettyimages-543560762.jpg"}        
 ### Выходные данные:
-               `{"id": 2, 
+               {"id": 2, 
                "name": "_104368428_gettyimages-543560762.jpg",
                "url": "https://ichef.bbci.co.uk/news/640/cpsprodpb/14236/production/_104368428_gettyimages-543560762.jpg",
                "picture": "http://localhost:8000/m/site_media/_104368428_gettyimages-543560762.jpg",
                "width": 640,
                "height": 360,
-               "parent_picture": null }`
+               "parent_picture": null }
 ___
 ### Запуск проекта:
 1. Клонировать репозиторий `https://contest.idacloud.ru/basterrus/image_resize_api_django_drf.git`
