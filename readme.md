@@ -17,7 +17,7 @@ ___
 1. Клонировать репозиторий `https://contest.idacloud.ru/basterrus/image_resize_api_django_drf.git`
 2. Перейти в каталог `cd image_resize_api_django_drf` при необходимости
 3. Создать и активировать виртуальное окружение
-4. Выполнить команду `pip freeze > requirements.txt`
+4. Выполнить команду `pip install -r requirements.txt`
 5. Выполнить команду `python manage.py runserver`
 6. Выполнить запросы к backend при помощи postman или открыть в браузере `http://127.0.0.1:8000/api/images/`
 ___
